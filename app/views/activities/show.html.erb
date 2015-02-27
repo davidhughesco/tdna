@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Area name:</strong>
+  <%= @activity.area_name %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @activity.area_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @activity.order_id %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

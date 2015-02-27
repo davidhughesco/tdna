@@ -1,0 +1,29 @@
+<table class="table table-hover table-responsive">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Organisation</th>
+			<th>Collaborations</th>
+			<th>Options</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @candidates.each do |c| %>
+		<tr>
+			<td><%= c.id %></td>
+			<td><%= link_to c.name, candidate_path(c) %></td>
+			<td><%= c.email %></td>
+			<td><%= c.organisation_name %></td>
+			<td><%= c.collaborations.count %></td>
+			<td>
+				<%= link_to 'Show', candidate_path(c), class: "btn btn-xs btn-primary" %>
+				<% unless c.collaborations.count > 0 %>
+				<%= link_to 'Delete', candidate_path(c), method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "Are you sure you want to delete this candidate? This action cannot be undone." } %>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

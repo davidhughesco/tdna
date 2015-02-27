@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th style="width:5%">ID</th>
+      <th style="width:5%">Order</th>
+      <th style="width:70%">Name</th>
+      <th style="width:20%;text-align:right">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grouped_areas.each do |area, activities| %>
+      <tr class="area-row">
+        <th style="vertical-align:bottom" scope="rowgroup" colspan="4"><%= area.name %></th>
+      </tr>
+    <% activities.each do |activity| %>
+      <tr>
+        <td><%= activity.id %></td>
+        <td><%= activity.order_id %></td>
+        <td><%= activity.name %></td>
+        <td style="text-align:right">
+          <%= link_to 'Show', activity, class: 'btn btn-xs btn-default' %>
+          <%= link_to 'Edit', edit_activity_path(activity), class: 'btn btn-xs btn-default' %>
+          <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-default' %> 
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <% end %>
+
+</table>

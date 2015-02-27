@@ -1,0 +1,48 @@
+// Import Bootstrap
+
+@import 'bootstrap';
+
+// Customisation
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+	margin-top: 1em;
+	/* Margin bottom by footer height */
+	margin-bottom: 40px;
+}
+
+a.btn-primary:visited {
+  color: white;
+}
+
+a.btn-success:visited {
+  color: white;
+}
+
+a.btn-default:visited {
+  color: inherit;
+}
+
+a.btn-danger:visited {
+  color: white;
+}
+
+.area-row {
+  height: 75px;
+  font-size: 1.25em;
+}
+
+.footer-push {
+  height: 40px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+}

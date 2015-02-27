@@ -1,0 +1,12 @@
+<h2><%= @candidate.name %></h2>
+
+
+<strong>Collaborators:</strong>
+<ul>
+  <% for collaboration in @candidate.collaborations %>
+    <li>
+      <%= collaboration.collaborator.first_name %>
+      (<%= link_to "remove", collaboration, :method => :delete %>)
+    </li>
+  <% end %>
+</ul>
