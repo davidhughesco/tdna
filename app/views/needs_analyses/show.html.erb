@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Candidate:</strong>
+  <%= @needs_analysis.candidate %>
+</p>
+
+<p>
+  <strong>Collaborator:</strong>
+  <%= @needs_analysis.collaborator_id %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @needs_analysis.activity_id %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @needs_analysis.area_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @needs_analysis.order_id %>
+</p>
+
+<p>
+  <strong>Relevance:</strong>
+  <%= @needs_analysis.relevance %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @needs_analysis.interest %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @needs_analysis.skill %>
+</p>
+
+<p>
+  <strong>Current relevance:</strong>
+  <%= @needs_analysis.current_relevance %>
+</p>
+
+<p>
+  <strong>Future relevance:</strong>
+  <%= @needs_analysis.future_relevance %>
+</p>
+
+<%= link_to 'Edit', edit_needs_analysis_path(@needs_analysis) %> |
+<%= link_to 'Back', needs_analyses_path %>

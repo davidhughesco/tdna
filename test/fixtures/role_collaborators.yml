@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 
+  collaborator_id: 1
+  current_role: MyString
+  next_role: MyString
+  current_role_context: MyString
+  next_role_context: MyString
+  main_aspect_1: MyString
+  main_aspect_2: MyString
+  main_aspect_3: MyString
+  main_aspect_4: MyString
+  main_aspect_5: MyString
+
+two:
+  candidate_id: 
+  collaborator_id: 1
+  current_role: MyString
+  next_role: MyString
+  current_role_context: MyString
+  next_role_context: MyString
+  main_aspect_1: MyString
+  main_aspect_2: MyString
+  main_aspect_3: MyString
+  main_aspect_4: MyString
+  main_aspect_5: MyString

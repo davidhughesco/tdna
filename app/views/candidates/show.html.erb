@@ -1,12 +1,38 @@
 <h2><%= @candidate.name %></h2>
+<br>
 
 
-<strong>Collaborators:</strong>
-<ul>
-  <% for collaboration in @candidate.collaborations %>
-    <li>
-      <%= collaboration.collaborator.first_name %>
-      (<%= link_to "remove", collaboration, :method => :delete %>)
-    </li>
+<h2>Candidate's Needs Analysis</h2>
+<%= form_tag edit_candidate_needs_analyses_path do %>
+  <% @needs_analyses.each do |needs_analysis| %>
+    <div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div>
   <% end %>
-</ul>
+  <%= submit_tag "Begin", class: "btn btn-sm btn-primary" %>
+<% end %>
+
+<h2>Candidate's Role Analysis</h2>
+<% @role_candidates.each do |r| %>
+  <%= link_to 'Begin', edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
+<% end %>
+
+<% if @candidate.collaborations.count > 0 %>
+<h2>Subordinates</h2>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <th>Candidate Name</th>
+    <th>Options</th>
+  </thead>
+  <tbody>
+    <% for collaboration in @candidate.collaborations %>
+    <tr>
+      <td><%= collaboration.collaborator.name %></td>
+      <td>
+        <%= link_to 'Show', collaborator_show_path(collaboration.collaborator.id), class: "btn btn-xs btn-default" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>

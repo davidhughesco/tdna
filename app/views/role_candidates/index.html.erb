@@ -1,0 +1,23 @@
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Candidate</th>
+      <th>Current Role</th>
+      <th>Time in Role</th>
+      <th>Previous Role</th>
+      <th>Next Role</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @role_candidates.each do |role_candidate| %>
+      <tr>
+        <td><%= role_candidate.candidate.name %></td>
+        <td><%= role_candidate.current_role %></td>
+        <td><%= role_candidate.time_in_role %></td>
+        <td><%= role_candidate.previous_role %></td>
+        <td><%= role_candidate.next_role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

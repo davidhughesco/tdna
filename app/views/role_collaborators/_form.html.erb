@@ -1,0 +1,37 @@
+<%= simple_form_for(@role_collaborator, html: { class: 'form-vertical'},
+wrapper: :vertical_form,
+wrapper_mappings: {
+check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_checkboxes }
+) do |f| %>
+
+  <div class="form-group">
+
+    <%= f.input :current_role, label: "Current Role", hint: "What is this candidate's current role / job title?" %>
+
+    <%= f.input :next_role, label: "Next Role", hint: "What is this candidate's next role / job title? Leave blank if you do not know." %>
+
+    <div class="radio-button-correct">
+      <%= f.input :current_role_context, label: "Context of Current Role", as: :radio_buttons, collection: context_options, hint: "Select the phrase that most closely describes the level and context of this candidate's CURRENT role." %>
+    </div>
+
+    <%= f.input :next_role_context, label: "Context of Next Role", as: :radio_buttons, collection: context_options, hint: "Select the phrase that most closely describes the level and context of this candidate's NEXT role (if known)." %>
+
+    <%= f.label :main_aspect_1, label: "Main Aspects of Current Role", style: "margin-top: 1.5em" %>
+
+    <p class="help-block">
+      Relative to this candidate's current role, list (in order of importance, where 1 is the most important) up to five main aspects of their job in which they have to be most effective. Think about the purposes and main outcomes expected from them, critical to the successful execution of their role.
+    </p>
+    
+    <%= f.input :main_aspect_1, label: false, placeholder: "1" %>
+    <%= f.input :main_aspect_2, label: false, placeholder: "2" %>
+    <%= f.input :main_aspect_3, label: false, placeholder: "3" %>
+    <%= f.input :main_aspect_4, label: false, placeholder: "4" %>
+    <%= f.input :main_aspect_5, label: false, placeholder: "5" %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save", class: "btn btn-success" %>
+  </div>
+
+<% end %>

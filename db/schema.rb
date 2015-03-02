@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227150740) do
+ActiveRecord::Schema.define(version: 20150302100749) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -58,5 +58,76 @@ ActiveRecord::Schema.define(version: 20150227150740) do
     t.datetime "updated_at"
     t.string   "category"
   end
+
+  create_table "needs_analyses", force: true do |t|
+    t.integer  "candidate_id"
+    t.integer  "collaborator_id"
+    t.integer  "activity_id"
+    t.integer  "area_id"
+    t.integer  "order_id"
+    t.integer  "relevance"
+    t.integer  "interest"
+    t.integer  "skill"
+    t.boolean  "current_relevance"
+    t.boolean  "future_relevance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "needs_analyses", ["candidate_id"], name: "index_needs_analyses_on_candidate_id"
+
+  create_table "role_candidates", force: true do |t|
+    t.integer  "candidate_id"
+    t.string   "current_role"
+    t.string   "time_in_role"
+    t.string   "previous_role"
+    t.string   "next_role"
+    t.text     "qualifications"
+    t.string   "previous_role_context"
+    t.string   "current_role_context"
+    t.string   "next_role_context"
+    t.string   "main_aspect_a"
+    t.string   "main_aspect_b"
+    t.string   "main_aspect_c"
+    t.string   "main_aspect_d"
+    t.string   "main_aspect_e"
+    t.integer  "main_aspect_importance_a"
+    t.integer  "main_aspect_importance_b"
+    t.integer  "main_aspect_importance_c"
+    t.integer  "main_aspect_importance_d"
+    t.integer  "main_aspect_importance_e"
+    t.integer  "main_aspect_enjoyment_a"
+    t.integer  "main_aspect_enjoyment_b"
+    t.integer  "main_aspect_enjoyment_c"
+    t.integer  "main_aspect_enjoyment_d"
+    t.integer  "main_aspect_enjoyment_e"
+    t.text     "secondary_aspect"
+    t.text     "unnecessary_aspect"
+    t.text     "short_term_training"
+    t.text     "medium_term_training"
+    t.text     "long_term_training"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "role_candidates", ["candidate_id"], name: "index_role_candidates_on_candidate_id"
+
+  create_table "role_collaborators", force: true do |t|
+    t.integer  "candidate_id"
+    t.integer  "collaborator_id"
+    t.string   "current_role"
+    t.string   "next_role"
+    t.string   "current_role_context"
+    t.string   "next_role_context"
+    t.string   "main_aspect_1"
+    t.string   "main_aspect_2"
+    t.string   "main_aspect_3"
+    t.string   "main_aspect_4"
+    t.string   "main_aspect_5"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "role_collaborators", ["candidate_id"], name: "index_role_collaborators_on_candidate_id"
 
 end

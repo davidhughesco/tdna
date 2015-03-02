@@ -15,10 +15,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       	<% if candidate_signed_in? %>
-        	<li class="<%= 'active' if current_page?(candidate_path(current_candidate)) %>"><%= link_to 'Get Started', '#' %></li>
-          <li><%= link_to 'Candidates', candidates_path %></li>
-          <li><%= link_to 'Collaborations', collaborations_path %></li>
-          <li><%= link_to 'Activities', activities_path %></li>
+        	<li class=""><%= link_to 'Get Started', '#' %></li>
+          <li class="<%= 'active' if current_page?(candidates_path) %>"><%= link_to 'Candidates', candidates_path %></li>
+          <li class="<%= 'active' if current_page?(collaborations_path) %>"><%= link_to 'Collaborations', collaborations_path %></li>
+          <li class="<%= 'active' if current_page?(needs_analyses_path) %>"><%= link_to 'TDNAs', needs_analyses_path %></li>
+          <li class="<%= 'active' if current_page?(role_candidates_path) %>"><%= link_to 'Roles (Candidate)', role_candidates_path %></li>
+          <li class="<%= 'active' if current_page?(role_collaborators_path) %>"><%= link_to 'Roles (Collaborator)', role_collaborators_path %></li>
+          <li class="<%= 'active' if current_page?(activities_path) %>"><%= link_to 'Activities', activities_path %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">

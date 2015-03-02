@@ -1,0 +1,34 @@
+<h2>Candidate: <%= @candidate.name %><br>
+<small>Manager: <%= @candidate.collaborator_id %></small></h2>
+
+
+<div class="row">
+
+  <div class="col-md-4">
+
+    <div class="summary-box">
+      <div class="summary-box-title">Training &amp; Development<br>Needs Analysis</div>
+      <div class="summary-box-description">Responses to this matrix will support your ongoing training and development. You will see a list of activities and you have to indicate whether each activity is relevant to your current role and/or future role.</div>
+      <%= form_tag edit_collaborator_needs_analyses_path do %>
+        <% @needs_analyses.each do |needs_analysis| %>
+          <div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div>
+        <% end %>
+        <%= submit_tag "Begin", class: "btn btn-sm btn-primary" %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="summary-box">
+      <div class="summary-box-title">Role Analysis</div>
+      <div class="summary-box-description">Description</div>
+<% @role_candidates.each do |r| %>
+	<%= link_to 'Begin', edit_role_collaborator_path(r.id), class: "btn btn-sm btn-primary" %>
+<% end %>
+    </div>
+
+  </div>
+
+</div>

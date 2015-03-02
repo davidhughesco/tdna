@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 
+  current_role: MyString
+  time_in_role: MyString
+  previous_role: MyString
+  next_role: MyString
+  qualifications: MyText
+  previous_role_context: MyString
+  current_role_context: MyString
+  next_role_context: MyString
+  main_aspect_a: MyString
+  main_aspect_b: MyString
+  main_aspect_c: MyString
+  main_aspect_d: MyString
+  main_aspect_e: MyString
+  main_aspect_importance_a: 1
+  main_aspect_importance_b: 1
+  main_aspect_importance_c: 1
+  main_aspect_importance_d: 1
+  main_aspect_importance_e: 1
+  main_aspect_enjoyment_a: 1
+  main_aspect_enjoyment_b: 1
+  main_aspect_enjoyment_c: 1
+  main_aspect_enjoyment_d: 1
+  main_aspect_enjoyment_e: 1
+  secondary_aspect: MyText
+  unnecessary_aspect: MyText
+  short_term_training: MyText
+  medium_term_training: MyText
+  long_term_training: MyText
+
+two:
+  candidate_id: 
+  current_role: MyString
+  time_in_role: MyString
+  previous_role: MyString
+  next_role: MyString
+  qualifications: MyText
+  previous_role_context: MyString
+  current_role_context: MyString
+  next_role_context: MyString
+  main_aspect_a: MyString
+  main_aspect_b: MyString
+  main_aspect_c: MyString
+  main_aspect_d: MyString
+  main_aspect_e: MyString
+  main_aspect_importance_a: 1
+  main_aspect_importance_b: 1
+  main_aspect_importance_c: 1
+  main_aspect_importance_d: 1
+  main_aspect_importance_e: 1
+  main_aspect_enjoyment_a: 1
+  main_aspect_enjoyment_b: 1
+  main_aspect_enjoyment_c: 1
+  main_aspect_enjoyment_d: 1
+  main_aspect_enjoyment_e: 1
+  secondary_aspect: MyText
+  unnecessary_aspect: MyText
+  short_term_training: MyText
+  medium_term_training: MyText
+  long_term_training: MyText

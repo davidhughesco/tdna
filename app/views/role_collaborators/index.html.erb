@@ -1,0 +1,21 @@
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Candidate</th>
+      <th>Collaborator</th>
+      <th>Current Role</th>
+      <th>Next Role</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @role_collaborators.each do |role_collaborator| %>
+      <tr>
+        <td><%= role_collaborator.candidate.name %></td>
+        <td><%= role_collaborator.collaborator_id %></td>
+        <td><%= role_collaborator.current_role %></td>
+        <td><%= role_collaborator.next_role %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

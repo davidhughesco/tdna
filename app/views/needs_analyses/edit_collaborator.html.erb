@@ -1,0 +1,43 @@
+<div class="row">
+
+	<div class="col-md-8 col-md-offset-2">
+
+		<h2>Needs Analysis<br>
+		<small>Collaborator's Matrix</small></h2>
+		<br>
+
+		<%= form_tag update_collaborator_needs_analyses_path, :method => :put do %>
+
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+					<th style="width:50%">Activity</th>
+				    <th style="width:25%">Current Relevance</th>
+				    <th style="width:25%">Future Relevance</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <% @grouped_areas.each do |area, needs_analyses| %>
+			      <tr class="area-row">
+			        <th style="vertical-align:bottom" scope="rowgroup" colspan="4"><%= area.name %></th>
+			      </tr>
+			    <% for needs_analysis in needs_analyses %>
+				    <%= fields_for 'needs_analyses[]', needs_analysis do |f| %>
+				      <tr>
+							<td><%= needs_analysis.activity.name %></td>
+							<td><%= f.check_box :current_relevance, label: false %></td>
+							<td><%= f.check_box :future_relevance, label: false %></td>
+				      </tr>
+				    <% end %>
+			    <% end %>
+			  </tbody>
+			  <% end %>
+			</table>
+
+			<%= submit_tag "Save Responses", class: "btn btn-success" %>
+
+		<% end %>
+
+	</div>
+
+</div>

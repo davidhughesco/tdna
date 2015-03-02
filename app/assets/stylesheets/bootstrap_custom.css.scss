@@ -31,10 +31,42 @@ a.btn-danger:visited {
   color: white;
 }
 
+// Tables
+
+.candidate-columns {
+  text-align: center;
+  border-left: 2px solid lightgray;
+  border-right: 2px solid lightgray;
+}
+
+.left-column {
+  border-left: 2px solid lightgray;
+}
+
+.right-column {
+  border-right: 2px solid lightgray;
+}
+
 .area-row {
   height: 75px;
   font-size: 1.25em;
 }
+
+// SimpleForm
+
+.radio_buttons span {
+  margin-left: 1.5em !important;
+}
+
+.help-block {
+  margin-top: 0;
+}
+
+.control-label {
+  margin-top: 1.5em;
+}
+
+// Footer
 
 .footer-push {
   height: 40px;

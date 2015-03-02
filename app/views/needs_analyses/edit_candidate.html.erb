@@ -1,0 +1,37 @@
+<div class="row">
+
+	<div class="col-md-8 col-md-offset-2">
+
+		<h2>Needs Analysis<br>
+		<small>Candidate's Matrix</small></h2>
+
+		<%= form_tag update_candidate_needs_analyses_path, :method => :put do %>
+
+			<table class="table table-hover">
+				<thead>
+					<th style="width:40%">Activity</th>
+				    <th style="width:20%">Relevance to Current Role</th>
+				    <th style="width:20%">Interest</th>
+				    <th style="width:20%">Skill/Confidence</th>
+				</thead>
+				<tbody>
+					<% for needs_analysis in @needs_analyses %>
+						<%= simple_fields_for 'needs_analyses[]', needs_analysis do |f| %>
+							<tr class="aspect-row">
+								<td><%= needs_analysis.activity.name %></td>
+								<td><%= f.input :relevance, as: :select, collection: 0..5, label: false %></td>
+								<td><%= f.input :interest, as: :select, collection: 0..5, label: false %></td>
+								<td><%= f.input :skill, as: :select, collection: 0..5, label: false %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+			</table>
+
+			<%= submit_tag "Save Responses", class: "btn btn-success" %>
+
+		<% end %>
+
+	</div>
+
+</div>

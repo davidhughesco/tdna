@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Candidate:</strong>
+  <%= @role_collaborator.candidate %>
+</p>
+
+<p>
+  <strong>Collaborator:</strong>
+  <%= @role_collaborator.collaborator_id %>
+</p>
+
+<p>
+  <strong>Current role:</strong>
+  <%= @role_collaborator.current_role %>
+</p>
+
+<p>
+  <strong>Next role:</strong>
+  <%= @role_collaborator.next_role %>
+</p>
+
+<p>
+  <strong>Current role context:</strong>
+  <%= @role_collaborator.current_role_context %>
+</p>
+
+<p>
+  <strong>Next role context:</strong>
+  <%= @role_collaborator.next_role_context %>
+</p>
+
+<p>
+  <strong>Main aspect 1:</strong>
+  <%= @role_collaborator.main_aspect_1 %>
+</p>
+
+<p>
+  <strong>Main aspect 2:</strong>
+  <%= @role_collaborator.main_aspect_2 %>
+</p>
+
+<p>
+  <strong>Main aspect 3:</strong>
+  <%= @role_collaborator.main_aspect_3 %>
+</p>
+
+<p>
+  <strong>Main aspect 4:</strong>
+  <%= @role_collaborator.main_aspect_4 %>
+</p>
+
+<p>
+  <strong>Main aspect 5:</strong>
+  <%= @role_collaborator.main_aspect_5 %>
+</p>
+
+<%= link_to 'Edit', edit_role_collaborator_path(@role_collaborator) %> |
+<%= link_to 'Back', role_collaborators_path %>

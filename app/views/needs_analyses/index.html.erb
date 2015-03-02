@@ -1,0 +1,39 @@
+<table class="table table-hover table-responsive">
+
+    <thead>
+    <tr>
+      <th colspan="1" style="text-align:center"></th>
+      <th colspan="3" class="candidate-columns">Candidate</th>
+      <th colspan="2" style="text-align:center">Collaborator</th>
+    </tr>
+  </thead>
+
+  <thead>
+    <tr>
+      <th style="width:40%">Activity</th>
+      <th class="left-column" style="text-align:center">Current<br>Relevance</th>
+      <th style="text-align:center">Interest</th>
+      <th class="right-column" style="text-align:center">Skill</th>
+      <th style="text-align:center">Current<br>Relevance</th>
+      <th style="text-align:center">Future<br>Relevance</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grouped_analyses.each do |candidate, needs_analyses| %>
+      <tr class="area-row">
+        <th style="vertical-align:bottom" scope="rowgroup" colspan="8"><%= candidate.name %> (<%= link_to candidate.collaborator_id, candidate_path(candidate.collaborator_id) %>)</th>
+      </tr>
+    <% needs_analyses.each do |needs_analysis| %>
+      <tr>
+        <td><%= needs_analysis.activity.name %></td>
+        <td class="left-column" style="text-align:center"><%= needs_analysis.relevance %></td>
+        <td style="text-align:center"><%= needs_analysis.interest %></td>
+        <td class="right-column" style="text-align:center"><%= needs_analysis.skill %></td>
+        <td style="text-align:center"><%= needs_analysis.current_relevance %></td>
+        <td style="text-align:center"><%= needs_analysis.future_relevance %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end %>
+</table>

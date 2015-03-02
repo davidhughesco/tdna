@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate_id: 
+  collaborator_id: 1
+  activity_id: 1
+  area_id: 1
+  order_id: 1
+  relevance: 1
+  interest: 1
+  skill: 1
+  current_relevance: false
+  future_relevance: false
+
+two:
+  candidate_id: 
+  collaborator_id: 1
+  activity_id: 1
+  area_id: 1
+  order_id: 1
+  relevance: 1
+  interest: 1
+  skill: 1
+  current_relevance: false
+  future_relevance: false
