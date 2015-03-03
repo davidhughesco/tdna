@@ -1,4 +1,5 @@
 class RoleCollaboratorsController < ApplicationController
+  before_action :authenticate_administrator!, only: :index
   before_action :set_role_collaborator, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

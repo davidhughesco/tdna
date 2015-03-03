@@ -13,7 +13,7 @@ class Candidate < ActiveRecord::Base
 	has_many :role_collaborators
 
 	validates :collaborator_id, numericality: { only_integer: true }, presence: true
-	validates_presence_of :first_name, :last_name, :email, :password
+	validates_presence_of :first_name, :last_name, :email
 
 	# Randomise the Candidate ID (before create)
 	# before_create :randomise_id <-- UNCOMMENT THIS and 33-37 -->

@@ -1,38 +1,66 @@
-<h2><%= @candidate.name %></h2>
-<br>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
 
+    <div class="show-table">
 
-<h2>Candidate's Needs Analysis</h2>
-<%= form_tag edit_candidate_needs_analyses_path do %>
-  <% @needs_analyses.each do |needs_analysis| %>
-    <div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div>
-  <% end %>
-  <%= submit_tag "Begin", class: "btn btn-sm btn-primary" %>
-<% end %>
+      <h2>Your Questionnaires</h2>
+      <br>
 
-<h2>Candidate's Role Analysis</h2>
-<% @role_candidates.each do |r| %>
-  <%= link_to 'Begin', edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
-<% end %>
+      <table class="table table-hover table-responsive">
+        <tbody>
+          <tr>
+            <td>
+              <strong>Training &amp; Development Needs Analysis</strong><br>
+              Description goes here, all about the TDNA and how it can help, plus a few instructions.
+            </td>
+            <td>
+              <%= form_tag edit_candidate_needs_analyses_path do %>
+                <% @needs_analyses.each do |needs_analysis| %>
+                  <div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div>
+                <% end %>
+                <%= submit_tag "Begin", class: "btn btn-sm btn-primary" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Role Analysis</strong><br>
+              Description goes here, all about the TDNA and how it can help, plus a few instructions.
+            </td>
+            <td>
+              <% @role_candidates.each do |r| %>
+                <%= link_to 'Begin', edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-<% if @candidate.collaborations.count > 0 %>
-<h2>Subordinates</h2>
+    </div>
 
-<table class="table table-hover table-responsive">
-  <thead>
-    <th>Candidate Name</th>
-    <th>Options</th>
-  </thead>
-  <tbody>
-    <% for collaboration in @candidate.collaborations %>
-    <tr>
-      <td><%= collaboration.collaborator.name %></td>
-      <td>
-        <%= link_to 'Show', collaborator_show_path(collaboration.collaborator.id), class: "btn btn-xs btn-default" %>
-      </td>
-    </tr>
+    <% if @candidate.collaborations.count > 0 %>
+    
+    <div>
+
+      <h2>Colleagues' Questionnaires</h2>
+      <br>
+
+      <table class="table table-hover table-responsive">
+        <tbody>
+          <% for collaboration in @candidate.collaborations %>
+          <tr>
+            <td><strong><%= collaboration.collaborator.name %></strong></td>
+            <td>
+              <%= link_to 'Show', collaborator_show_path(collaboration.collaborator.id), class: "btn btn-xs btn-default" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
     <% end %>
-  </tbody>
-</table>
 
-<% end %>
+  </div>
+</div>

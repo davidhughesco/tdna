@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :administrators
   resources :role_collaborators
 
   resources :role_candidates
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   resources :collaborations
 
   get '/candidates/:id(.:format)/collaborator' => 'candidates#collaborator_show', :as => :collaborator_show
+  get '/admin' => 'pages#admin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,5 @@
 class NeedsAnalysesController < ApplicationController
+  before_action :authenticate_administrator!, only: :index
   before_action :set_needs_analysis, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

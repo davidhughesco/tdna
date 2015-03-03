@@ -12,7 +12,7 @@
 
 		<%= flash_messages %>
 
-		<%= render 'layouts/header' %>
+		<%= render 'layouts/header' unless @disable_header %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
 			

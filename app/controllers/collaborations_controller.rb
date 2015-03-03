@@ -1,4 +1,5 @@
 class CollaborationsController < ApplicationController
+	before_action :authenticate_administrator!, only: :index
 
 	def index
 		@collaborations = Collaboration.all

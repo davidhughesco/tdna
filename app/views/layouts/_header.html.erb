@@ -16,6 +16,8 @@
       <ul class="nav navbar-nav">
       	<% if candidate_signed_in? %>
         	<li class=""><%= link_to 'Get Started', '#' %></li>
+        <% end %>
+        <% if administrator_signed_in? %>
           <li class="<%= 'active' if current_page?(candidates_path) %>"><%= link_to 'Candidates', candidates_path %></li>
           <li class="<%= 'active' if current_page?(collaborations_path) %>"><%= link_to 'Collaborations', collaborations_path %></li>
           <li class="<%= 'active' if current_page?(needs_analyses_path) %>"><%= link_to 'TDNAs', needs_analyses_path %></li>
@@ -27,7 +29,10 @@
       <ul class="nav navbar-nav navbar-right">
       	<% if candidate_signed_in? %>
       		<li><%= link_to current_candidate.name, edit_candidate_registration_path(current_candidate) %></li>
-        	<li><%= link_to "Sign out", destroy_candidate_session_path, method: :delete %></li>      
+        	<li><%= link_to "Sign out", destroy_candidate_session_path, method: :delete %></li>
+        <% elsif administrator_signed_in? %>
+          <li><%= link_to current_administrator.email, edit_administrator_registration_path(current_administrator) %></li>
+          <li><%= link_to "Sign out", destroy_administrator_session_path, method: :delete %></li>
         <% else %>
         	<li><%= link_to 'Sign up', new_candidate_registration_path %></li>
         	<li><%= link_to 'Sign in', new_candidate_session_path %></li>
