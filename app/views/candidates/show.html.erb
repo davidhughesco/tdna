@@ -30,10 +30,10 @@
       <p>The role analysis questionnaire sets the context in terms of your current role and, if known, your next role. By using your responses to this, we can ensure that any recommendations we make in terms of training and development fit with your current (and future) needs.</p>
       <!-- This is the button and backend code to ensure the role analysis questionnaire loads on click -->
       <% @role_candidates.each do |r| %>
-      <% if current_candidate.role_visits < 1 %>
-      <%= link_to "Get Started", edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
+      <% if current_candidate.role_visits.present? %>
+      <%= link_to "Edit Responses", edit_role_candidate_path(r.id), class: "btn btn-sm btn-default" %>  
       <% else %>
-      <%= link_to "Edit Responses", edit_role_candidate_path(r.id), class: "btn btn-sm btn-default" %>
+      <%= link_to "Get Started", edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
       <% end %>
       <% end %>
       <!-- end -->
@@ -42,10 +42,10 @@
     <div class="show-section">
       <h3>TDNA Matrix</h3>
       <p>Training &amp; Development Needs Analysis (TDNA) assesses your self-perceived capabilities in everyday activities. By analysing your responses to this, we can recommend training and development that will support your current and future roles.</p>
-      <% if current_candidate.tdna_visits < 1 %>
-      <%= link_to "Get Started", instructions_path, class: "btn btn-sm btn-primary" %>
-      <% else %>
+      <% if current_candidate.tdna_visits.present? %>
       <%= link_to "Edit Responses", instructions_path, class: "btn btn-sm btn-default" %>
+      <% else %>
+      <%= link_to "Get Started", instructions_path, class: "btn btn-sm btn-primary" %>
       <% end %>
     </div>
 
