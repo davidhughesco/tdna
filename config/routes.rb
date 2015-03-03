@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   resources :candidates, only: [:index, :show, :destroy]
   resources :collaborations
 
-  get '/candidates/:id(.:format)/collaborator' => 'candidates#collaborator_show', :as => :collaborator_show
+  get '/candidates/:id(.:format)/collaborator' => 'candidates#collaborator_instructions', :as => :collaborator_instructions
+  get '/candidates/:id(.:format)/instructions' => 'candidates#instructions', :as => :instructions
   get '/admin' => 'pages#admin'
 
   # The priority is based upon order of creation: first created -> highest priority.

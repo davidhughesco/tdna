@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+  <h3>TDNA Matrix<br>
+  <small>for <%= @candidate.name %></small></h3>
+  <br>
+
+  <h3><small>Instructions</small></h3>
+
+  <p>When you click the button below, you will see a matrix of three columns: a list of activities; 'Current Relevance' and 'Future Relevance'. Like this:</p>
+
+  <%= image_tag 'tdna_matrix.png', width: '100%', class: 'instructions-screenshot' %>
+
+  <ol class="bullets">
+    <li>For each activity, please tick the box under 'Current Relevance' if that activity is relevant to <%= @candidate.first_name %>'s <strong>current</strong> role/job. Leave it unticked if you feel the activity is not relevant to <%= @candidate.first_name %>'s current role/job</li>
+    <li>Similarly, please tick the box under 'Future Relevance' if that activity is relevant to <%= @candidate.first_name %>'s <strong>future</strong> role/job. Leave it unticked if you feel the activity is not relevant to <%= @candidate.first_name %>'s future role/job</li>
+  </ol>
+
+  <br>
+  <!-- This is the button and backend code to ensure the role analysis questionnaire loads on click -->
+  <%= form_tag edit_collaborator_needs_analyses_path do %><% @needs_analyses.each do |needs_analysis| %><div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div><% end %><%= submit_tag "Begin #{@candidate.first_name}'s TDNA", class: "btn btn-sm btn-primary" %><% end %>
+  <!-- end -->
+
+  </div>
+</div>

@@ -1,63 +1,92 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-6 col-md-offset-3">
 
-    <div class="show-table">
+    <div class="alert alert-warning alert-dismissable alert-welcome" role="alert">
+      <div id="welcome-div">
+        <h3>Instructions</h3>
+        <ol>
+          <li>Complete the <strong>Role Analysis</strong> questionnaire by clicking on 'Get Started' in the Role Analysis box. When finished, click 'Save and Exit', and you will return to this page.</li>
+          <li>Complete the <strong>TDNA Matrix</strong> by clicking on 'Get Started' in the TDNA Matrix box. When finished, click 'Save and Exit', and you will return to this page again.</li>
+          <% if @candidate.collaborations.count > 0 %>
+          <li>Complete the Role Analysis questionnaire and TDNA Matrix for each of your colleagues listed in the <strong>Colleagues</strong> box. Click on 'Save and Exit' at the end of each to return to this page.</li>
+          <li>As you complete each questionnaire, the buttons on this page will change to white indicating they have been started. You will still be able to access them by clicking again on the button.</li>
+          <% end %>
+          <li>When complete, click 'Sign out' at the top-right of your screen.</li>
+          <li>If you need to change your sign-up details, click 'Edit Profile' at any time.</li>
+        </ol>
+      </div>
+      <button id="hideshow-welcome" class="btn btn-sm btn-default">Hide Instructions</button>
+    </div>
 
-      <h2>Your Questionnaires</h2>
-      <br>
+    <script>
+        $("#hideshow-welcome").click(function() {
+            $("#welcome-div").slideToggle( "slow", function() {});
+            $(this).text(function(i, text){ return text === "Show Instructions" ? "Hide Instructions" : "Show Instructions"; })
+        });
+    </script>
 
-      <table class="table table-hover table-responsive">
-        <tbody>
-          <tr>
-            <td>
-              <strong>Training &amp; Development Needs Analysis</strong><br>
-              Description goes here, all about the TDNA and how it can help, plus a few instructions.
-            </td>
-            <td>
-              <%= form_tag edit_candidate_needs_analyses_path do %>
-                <% @needs_analyses.each do |needs_analysis| %>
-                  <div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div>
-                <% end %>
-                <%= submit_tag "Begin", class: "btn btn-sm btn-primary" %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Role Analysis</strong><br>
-              Description goes here, all about the TDNA and how it can help, plus a few instructions.
-            </td>
-            <td>
-              <% @role_candidates.each do |r| %>
-                <%= link_to 'Begin', edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
-              <% end %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="show-section">
+      <h3>Role Analysis</h3>
+      <p>The role analysis questionnaire sets the context in terms of your current role and, if known, your next role. By using your responses to this, we can ensure that any recommendations we make in terms of training and development fit with your current (and future) needs.</p>
+      <!-- This is the button and backend code to ensure the role analysis questionnaire loads on click -->
+      <% @role_candidates.each do |r| %>
+      <% if current_candidate.role_visits < 1 %>
+      <%= link_to "Get Started", edit_role_candidate_path(r.id), class: "btn btn-sm btn-primary" %>
+      <% else %>
+      <%= link_to "Edit Responses", edit_role_candidate_path(r.id), class: "btn btn-sm btn-default" %>
+      <% end %>
+      <% end %>
+      <!-- end -->
+    </div>
 
+    <div class="show-section">
+      <h3>TDNA Matrix</h3>
+      <p>Training &amp; Development Needs Analysis (TDNA) assesses your self-perceived capabilities in everyday activities. By analysing your responses to this, we can recommend training and development that will support your current and future roles.</p>
+      <% if current_candidate.tdna_visits < 1 %>
+      <%= link_to "Get Started", instructions_path, class: "btn btn-sm btn-primary" %>
+      <% else %>
+      <%= link_to "Edit Responses", instructions_path, class: "btn btn-sm btn-default" %>
+      <% end %>
     </div>
 
     <% if @candidate.collaborations.count > 0 %>
     
-    <div>
+    <div class="show-section">
 
-      <h2>Colleagues' Questionnaires</h2>
-      <br>
+      <h3>Colleagues</h3>
+      <p>For each of your colleagues listed below, please complete their individual Role Analysis and TDNA Matrix.</p>
 
       <table class="table table-hover table-responsive">
+        <thead>
+          <th style="width:40%">Colleague</th>
+          <th style="width:30%">Role Analysis</th>
+          <th style="width:30%">TDNA Matrix</th>
+        </thead>
         <tbody>
-          <% for collaboration in @candidate.collaborations %>
+          <% @role_collaborator.each do |r| %>
           <tr>
-            <td><strong><%= collaboration.collaborator.name %></strong></td>
+            <td style="vertical-align:middle"><%= r.candidate.name %></td>
             <td>
-              <%= link_to 'Show', collaborator_show_path(collaboration.collaborator.id), class: "btn btn-xs btn-default" %>
+              <!-- Role Analysis button -->
+              <% if r.candidate.collaborator_role_visits.present? %>
+              <%= link_to 'Edit', edit_role_collaborator_path(r.id), class: "btn btn-xs btn-default" %>
+              <% else %>
+              <%= link_to 'Start', edit_role_collaborator_path(r.id), class: "btn btn-xs btn-primary" %>
+              <% end %>
+            </td>
+            <td>
+              <!-- TDNA button -->
+              <% if r.candidate.collaborator_tdna_visits.present? %>
+              <%= link_to 'Edit', collaborator_instructions_path(r.candidate_id), class: 'btn btn-xs btn-default' %>
+              <% else %>
+              <%= link_to 'Start', collaborator_instructions_path(r.candidate_id), class: 'btn btn-xs btn-primary' %>
+              <% end %>
             </td>
           </tr>
           <% end %>
         </tbody>
-      </table>
-
+      </table>        
+      
     </div>
 
     <% end %>

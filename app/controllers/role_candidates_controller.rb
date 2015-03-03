@@ -29,7 +29,9 @@ class RoleCandidatesController < ApplicationController
 
   def update
     @role_candidate.update(role_candidate_params)
-    respond_with(@role_candidate)
+    flash[:notice] = "Responses saved successfully"
+    current_candidate.increment!(:role_visits)
+    redirect_to candidate_path(current_candidate)
   end
 
   def destroy

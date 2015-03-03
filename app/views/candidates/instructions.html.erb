@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+  <h3>TDNA Matrix<br>
+  <small>for <%= current_candidate.name %></small></h3>
+  <br>
+
+  <h3><small>Instructions</small></h3>
+
+  <p>When you click the button below, you will see a matrix of three columns: a list of activities; 'Current Relevance' and 'Future Relevance'. Like this:</p>
+
+  <!-- <%= image_tag 'tdna_matrix.png', width: '100%', class: 'instructions-screenshot' %> -->
+
+  <ol class="bullets">
+    <li>ENTER</li>
+    <li>ENTER</li>
+  </ol>
+
+  <br>
+  <!-- This is the button and backend code to ensure the TDNA matrix loads on click -->
+  <%= form_tag edit_candidate_needs_analyses_path do %><% @needs_analyses.each do |needs_analysis| %><div style="display:none"><%= check_box_tag "needs_analysis_ids[]", needs_analysis.id, checked: true %></div><% end %><%= submit_tag "Click here to begin", class: "btn btn-sm btn-primary" %><% end %>
+  <!-- end -->
+
+  </div>
+</div>

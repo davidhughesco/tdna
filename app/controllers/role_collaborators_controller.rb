@@ -29,7 +29,9 @@ class RoleCollaboratorsController < ApplicationController
 
   def update
     @role_collaborator.update(role_collaborator_params)
-    respond_with(@role_collaborator)
+    flash[:notice] = "Responses saved successfully"
+    @role_collaborator.candidate.increment!(:collaborator_role_visits)
+    redirect_to candidate_path(current_candidate)
   end
 
   def destroy

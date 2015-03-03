@@ -2,8 +2,9 @@
 
 	<div class="col-md-8 col-md-offset-2">
 
-		<h2>Needs Analysis<br>
-		<small>Candidate's Matrix</small></h2>
+		<h3>TDNA Matrix<br>
+		<small>for <%= current_candidate.name %></small></h3>
+		<br>
 
 		<%= form_tag update_candidate_needs_analyses_path, :method => :put do %>
 
@@ -28,7 +29,7 @@
 				</tbody>
 			</table>
 
-			<%= submit_tag "Save Responses", class: "btn btn-success" %>
+			<%= submit_tag "Save and Exit", class: "btn btn-success" %>
 
 		<% end %>
 

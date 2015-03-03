@@ -10,11 +10,11 @@
 
 	<div class="container-fluid">
 
+		<%= render 'layouts/header' if administrator_signed_in? %>
+		<%= render 'layouts/candidate_banner' if candidate_signed_in? %>
 		<%= flash_messages %>
-
-		<%= render 'layouts/header' unless @disable_header %>
-		<%= yield %>
-		<%= render 'layouts/footer' %>
+		<div class="yield-div"><%= yield %></div>
+		<%= render 'layouts/footer' if candidate_signed_in? or administrator_signed_in? %>
 			
 	</div>
 

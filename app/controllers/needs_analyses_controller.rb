@@ -41,13 +41,15 @@ class NeedsAnalysesController < ApplicationController
 
   def update_candidate
     NeedsAnalysis.update(params[:needs_analyses].keys, params[:needs_analyses].values)
+    current_candidate.increment!(:tdna_visits)
     flash[:notice] = "Responses saved successfully"
-    redirect_to root_path # NEEDS CHANGING
+    redirect_to candidate_path(current_candidate)
   end
 
   # Collaborator's edit controllers
 
   def edit_collaborator
+    @candidate = Candidate.find(session[:candidate_id])
     @needs_analyses = NeedsAnalysis.find(params[:needs_analysis_ids]).sort_by &:order_id
     @grouped_areas = @needs_analyses.group_by &:area
   end
@@ -55,7 +57,10 @@ class NeedsAnalysesController < ApplicationController
   def update_collaborator
     NeedsAnalysis.update(params[:needs_analyses].keys, params[:needs_analyses].values)
     flash[:notice] = "Responses saved successfully"
-    redirect_to root_path # NEEDS CHANGING
+    @candidate = Candidate.find(session[:candidate_id])
+    @candidate.increment!(:collaborator_tdna_visits)
+    session.delete(:candidate_id)
+    redirect_to candidate_path(current_candidate)
   end
 
   def destroy

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302143623) do
+ActiveRecord::Schema.define(version: 20150303141511) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 20150302143623) do
   end
 
   create_table "candidates", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                    default: "", null: false
+    t.string   "encrypted_password",       default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",            default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 20150302143623) do
     t.string   "last_name"
     t.integer  "organisation_id"
     t.string   "organisation_name"
+    t.integer  "role_visits"
+    t.integer  "tdna_visits"
+    t.integer  "collaborator_role_visits"
+    t.integer  "collaborator_tdna_visits"
   end
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true

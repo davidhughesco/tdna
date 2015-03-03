@@ -14,9 +14,17 @@ class Candidate < ActiveRecord::Base
 
 	validates :collaborator_id, numericality: { only_integer: true }, presence: true
 	validates_presence_of :first_name, :last_name, :email
+	
+	# Custom validation for checking the existance of the Collaborator in the Candidate model
+
+	validate :collaborator_check, on: :create
+ 
+	def collaborator_check
+		errors.add(:collaborator_id, "Please use a valid code.") unless Candidate.find_by_id(self.collaborator_id).present?
+	end
 
 	# Randomise the Candidate ID (before create)
-	# before_create :randomise_id <-- UNCOMMENT THIS and 33-37 -->
+	before_create :randomise_id
 
 	# Create the required collaborations and responses (after create)
 	after_create	:create_collaboration,
@@ -33,11 +41,15 @@ class Candidate < ActiveRecord::Base
 
 	private
 
-#	def randomise_id
-#		begin
-#			self.id = SecureRandom.random_number(1_000_000)
-#		end while Candidate.where(id: self.id).exists?
-#	end
+	def randomise_id
+		begin
+			self.id = SecureRandom.random_number(1_000_000)
+		end while Candidate.where(id: self.id).exists?
+	end
+
+	def collaborator_id_exists
+  		return false if Candidate.find_by_id(self.collaborator_id).nil?
+	end
 
 	def create_needs_analysis
 		@activities = Activity.all
