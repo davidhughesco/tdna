@@ -1,0 +1,54 @@
+<a name="part5"></a>
+<div id="role-part5" style="display:none">
+    <%= f.label :main_aspect_a, label: "Main Aspects of your Current Role", style: "margin-top: 1.5em" %>
+    <p class="help-block">a) Relative to your current role, list the main aspects of the job (up to five) in which you have to be most effective. Think about the purposes and main outcomes expected from you that are critical to the successful execution of the role.</p>
+    <p class="help-block">b) In the 'Importance' column, order each aspect in terms of importance from 1 to 5, where 1 is the most important aspect of your role.</p>
+    <p class="help-block">c) In the 'Enjoyment' column, order each aspect in terms of your personal enjoyment from 1 to 5, where 1 is the aspect of your role you enjoy the most.</p>
+
+    <table class="table table-responsive">
+        <thead>
+            <th style="width:60%">Aspects</th>
+            <th style="width:20%;text-align:center">Importance</th>
+            <th style="width:20%;text-align:center">Enjoyment</th>
+        </thead>
+            <tr>
+                <td><%= f.input :main_aspect_a, label: false, placeholder: "1." %></td>
+                <td><%= f.input :main_aspect_importance_a, label: false, collection: 1..5 %></td>
+                <td><%= f.input :main_aspect_enjoyment_a, label: false, collection: 1..5 %></td>
+            </tr>
+            <tr>
+                <td><%= f.input :main_aspect_b, label: false, placeholder: "2." %></td>
+                <td><%= f.input :main_aspect_importance_b, label: false, collection: 1..5 %></td>
+                <td><%= f.input :main_aspect_enjoyment_b, label: false, collection: 1..5 %></td>
+            </tr>
+            <tr>
+                <td><%= f.input :main_aspect_c, label: false, placeholder: "3." %></td>
+                <td><%= f.input :main_aspect_importance_c, label: false, collection: 1..5 %></td>
+                <td><%= f.input :main_aspect_enjoyment_c, label: false, collection: 1..5 %></td>
+            </tr>
+            <tr>
+                <td><%= f.input :main_aspect_d, label: false, placeholder: "4." %></td>
+                <td><%= f.input :main_aspect_importance_d, label: false, collection: 1..5 %></td>
+                <td><%= f.input :main_aspect_enjoyment_d, label: false, collection: 1..5 %></td>
+            </tr>
+            <tr>
+                <td><%= f.input :main_aspect_e, label: false, placeholder: "5." %></td>
+                <td><%= f.input :main_aspect_importance_e, label: false, collection: 1..5 %></td>
+                <td><%= f.input :main_aspect_enjoyment_e, label: false, collection: 1..5 %></td>
+            </tr>
+    </table>
+
+    <a name="part6"></a>
+    <a id="show-part6-button" class="btn btn-primary">Next</a>
+
+    <script type="text/javascript">
+
+        $("#show-part6-button").click(function() {
+            $("#role-part6").slideToggle("fast", function() {});
+            $(this).hide();
+            scrollToAnchor('part6');
+        });
+
+    </script>
+
+</div>

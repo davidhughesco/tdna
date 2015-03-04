@@ -7,88 +7,91 @@ check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_
   <%= f.error_notification %>
 
   <div class="form-inputs">
+
+    <div id="role-part1">
     <%= f.input :current_role, label: "Current Role", hint: "What is your current role / job title?" %>
     <%= f.input :time_in_role, label: "Time in Role", hint: "How long have you been doing this role?" %>
     <%= f.input :previous_role, label: "Previous Role", hint: "What was your previous role / job title, immediately prior to your current role?" %>
     <%= f.input :next_role, label: "Next Role", hint: "What is your planned next role / job title? Leave blank if you do not know." %>
     <%= f.input :qualifications, hint: "What qualifications do you have (especially relevant to your current role)?" %>
+    </div>
+
+    <a id="show-part2-button" class="btn btn-primary">Next</a>
+
+    <script type="text/javascript">
+
+        function scrollToAnchor(aid){
+            var aTag = $("a[name='"+ aid +"']");
+            $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+        }
+
+        $("#show-part2-button").click(function() {
+            $("#role-part2").slideToggle("fast", function() {});
+            $(this).hide();
+            scrollToAnchor('part2');
+        });
+
+    </script>
+
+    <a name="part2"></a>
+    <div id="role-part2" style="display:none">
     <%= f.input :previous_role_context, label: "Context of your Previous Role", as: :radio_buttons, collection: context_options, hint: "Select the phrase that most closely describes the level and context of your PREVIOUS role." %>
+
+    <a id="show-part3-button" class="btn btn-primary">Next</a>
+
+    <script type="text/javascript">
+
+        $("#show-part3-button").click(function() {
+            $("#role-part3").slideToggle("fast", function() {});
+            $(this).hide();
+            scrollToAnchor('part3');
+        });
+
+    </script>
+
+    </div>
+
+    <a name="part3"></a>
+    <div id="role-part3" style="display:none">
     <%= f.input :current_role_context, label: "Context of your Current Role", as: :radio_buttons, collection: context_options, hint: "Select the phrase that most closely describes the level and context of your CURRENT role." %>
+
+    <a id="show-part4-button" class="btn btn-primary">Next</a>
+
+    <script type="text/javascript">
+
+        $("#show-part4-button").click(function() {
+            $("#role-part4").slideToggle("fast", function() {});
+            $(this).hide();
+            scrollToAnchor('part4');
+        });
+
+    </script>
+
+    </div>
+
+    <a name="part4"></a>
+    <div id="role-part4" style="display:none">
     <%= f.input :next_role_context, label: "Context of your Next Role", as: :radio_buttons, collection: context_options, hint: "Select the phrase that most closely describes the level and context of your NEXT role (if known)." %>
     
-    <%= f.label :main_aspect_a, label: "Main Aspects of your Current Role", style: "margin-top: 1.5em" %>
-    <p class="help-block">a) Relative to your current role, list the main aspects of the job (up to five) in which you have to be most effective. Think about the purposes and main outcomes expected from you that are critical to the successful execution of the role.</p>
-    <p class="help-block">b) In the 'Importance' column, order each aspect in terms of importance from 1 to 5, where 1 is the most important aspect of your role.</p>
-    <p class="help-block">c) In the 'Enjoyment' column, order each aspect in terms of your personal enjoyment from 1 to 5, where 1 is the aspect of your role you enjoy the most.</p>
+    <a id="show-part5-button" class="btn btn-primary">Next</a>
 
-    <div class="row" style="margin-top:2em">
-        <div class="col-md-8">
-            <i>Aspect of your Current Role</i>
-        </div>
-        <div class="col-md-2">
-            <i>Importance</i>
-        </div>
-        <div class="col-md-2">
-            <i>Enjoyment</i>
-        </div>    
-    </div><br>
+    <script type="text/javascript">
 
-    <div class="row">
-        <div class="col-md-8">
-            <%= f.input :main_aspect_a, label: false %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_importance_a, label: false, collection: 1..5 %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_enjoyment_a, label: false, collection: 1..5 %>
-        </div>    
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <%= f.input :main_aspect_b, label: false %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_importance_b, label: false, collection: 1..5 %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_enjoyment_b, label: false, collection: 1..5 %>
-        </div>    
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <%= f.input :main_aspect_c, label: false %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_importance_c, label: false, collection: 1..5 %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_enjoyment_c, label: false, collection: 1..5 %>
-        </div>    
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <%= f.input :main_aspect_d, label: false %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_importance_d, label: false, collection: 1..5 %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_enjoyment_d, label: false, collection: 1..5 %>
-        </div>    
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <%= f.input :main_aspect_e, label: false %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_importance_e, label: false, collection: 1..5 %>
-        </div>
-        <div class="col-md-2">
-            <%= f.input :main_aspect_enjoyment_e, label: false, collection: 1..5 %>
-        </div>    
+        $("#show-part5-button").click(function() {
+            $("#role-part5").slideToggle("fast", function() {});
+            $(this).hide();
+            scrollToAnchor('part5');
+        });
+
+    </script>
+
     </div>
 
+    <%= render :partial => "part5", :locals=>{:f=>f} %>
+
+    </div>
+
+    <div id="role-part6" style="display:none">
     <%= f.input :secondary_aspect, label: "Other Aspects of your Current Role", hint: "Please note any other aspects of your CURRENT role in which you need to be conversant; anything else you do to be effective in your role." %>
 
     <%= f.input :unnecessary_aspect, label: "Time Consuming Aspects", hint: "Please list any aspects of your CURRENT role that you think take up too much time." %>
@@ -98,11 +101,11 @@ check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_
     <%= f.input :medium_term_training, label: "Medium-term Development Needs", hint: "Please list any training or qualifications that would help you to develop the role further in the medium-term" %>
 
     <%= f.input :long_term_training, label: "Longer-term Development Needs", hint: "Please list any development you would hope for that could help you to take the next step in terms of more responsibility or different work in the longer-term." %>
-
-  </div>
-  <br>
-  <div class="form-actions">
+    
     <%= f.button :submit, "Save and Exit", class: "btn btn-success" %>
-  </div>
+
+    </div>
+
+</div>
 
 <% end %>
