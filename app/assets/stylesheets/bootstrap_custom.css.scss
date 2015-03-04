@@ -39,7 +39,6 @@ body {
   background-color: transparent;
   color: #896C3E;
   border: 1px solid #896C3E;
-  margin-top: 1.5em;
 }
 
 .show-section {
@@ -65,7 +64,16 @@ ol li {
 .instructions-screenshot {
   padding: 1em;
   border: 2px solid white;
-  margin: 1.5em 0;
+  margin: 1.5em 0 3em 0;
+}
+
+.rating-instructions hr {
+  margin: 2em 0;
+}
+
+.rating-instructions p, strong {
+  text-align: center;
+  margin: 0.5em 0 1em 0;
 }
 
 a.btn-primary:visited {
@@ -84,6 +92,14 @@ a.btn-danger:visited {
   color: white;
 }
 
+.button-inactive {
+  background-color: red;
+}
+
+.button-active {
+  background-color: green;
+}
+
 .sign-up {
   margin: 1em 0;
 }
@@ -93,6 +109,14 @@ a.btn-danger:visited {
 }
 
 // Tables
+
+.table-responsive td, th {
+  border-right: 1px solid lightgray;
+}
+
+.table-hover tbody tr:hover {
+  background-color: white !important;
+}
 
 .candidate-columns {
   text-align: center;
@@ -111,6 +135,11 @@ a.btn-danger:visited {
 .area-row {
   height: 75px;
   font-size: 1.25em;
+}
+
+.button-wrapper {
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 // SimpleForm

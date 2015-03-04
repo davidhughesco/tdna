@@ -1,0 +1,119 @@
+<% for needs_analysis in @needs_analyses %>
+	<%= simple_fields_for 'needs_analyses[]', needs_analysis do |f| %>
+		<tr>
+			
+			<td style="vertical-align:middle"><%= needs_analysis.activity.name %></td>
+
+			<!-- RELEVANCE -->
+
+			<td style="text-align:center">
+				<%= f.hidden_field :relevance, label: false %>
+
+				<script type="text/javascript">
+
+					<% (0..5).each do |i| %>
+					$(function() {
+						if ($('#needs_analyses_<%= needs_analysis.id %>_relevance').val() === '<%= i %>') {
+							$('#relevance-button-<%= needs_analysis.id %>-<%= i %>').addClass('btn-success');
+							$('#relevance-button-<%= needs_analysis.id %>-<%= i %>').removeClass('btn-default');
+						}
+					});
+					<% end %>
+
+				</script>
+
+				<div class="button-wrapper">
+				<% (0..5).each do |i| %>
+					
+					<a class='btn-relevance-<%= needs_analysis.id %> btn btn-xs btn-default' onclick="" id='relevance-button-<%= needs_analysis.id %>-<%= i %>' value='<%= i %>'><%= i %></a>
+
+					<script type="text/javascript">
+						$('#relevance-button-<%= needs_analysis.id %>-<%= i %>').click(function(){
+							$('.btn-relevance-<%= needs_analysis.id %>').removeClass('btn-success');
+							$('.btn-relevance-<%= needs_analysis.id %>').addClass('btn-default');
+							$('#needs_analyses_<%= needs_analysis.id %>_relevance').val('<%= i %>');
+							$('#relevance-button-<%= needs_analysis.id %>-<%= i %>').addClass('btn-success');
+							$('#relevance-button-<%= needs_analysis.id %>-<%= i %>').removeClass('btn-default');
+						});
+					</script>
+
+				<% end %>
+				</div>
+			</td>
+			
+			<!-- INTEREST -->
+
+			<td style="text-align:center">
+				<%= f.hidden_field :interest, label: false %>
+
+				<script type="text/javascript">
+
+					<% (0..5).each do |i| %>
+					$(function() {
+						if ($('#needs_analyses_<%= needs_analysis.id %>_interest').val() === '<%= i %>') {
+							$('#interest-button-<%= needs_analysis.id %>-<%= i %>').addClass('btn-success');
+							$('#interest-button-<%= needs_analysis.id %>-<%= i %>').removeClass('btn-default');
+						}
+					});
+					<% end %>
+
+				</script>
+
+				<div class="button-wrapper">
+				<% (0..5).each do |i| %>
+					
+					<a class='btn-interest-<%= needs_analysis.id %> btn btn-xs btn-default' onclick="" id='interest-button-<%= needs_analysis.id %>-<%= i %>' value='<%= i %>'><%= i %></a>
+
+					<script type="text/javascript">
+						$('#interest-button-<%= needs_analysis.id %>-<%= i %>').click(function(){
+							$('.btn-interest-<%= needs_analysis.id %>').removeClass('btn-success');
+							$('.btn-interest-<%= needs_analysis.id %>').addClass('btn-default');
+							$('#needs_analyses_<%= needs_analysis.id %>_interest').val('<%= i %>');
+							$('#interest-button-<%= needs_analysis.id %>-<%= i %>').addClass('btn-success');
+							$('#interest-button-<%= needs_analysis.id %>-<%= i %>').removeClass('btn-default');
+						});
+					</script>
+
+				<% end %>
+				</div>
+			</td>
+
+			<!-- SKILL/CONFIDENCE -->
+
+			<td style="text-align:center">
+				<%= f.hidden_field :skill, label: false %>
+
+				<script type="text/javascript">
+
+					<% (0..5).each do |i| %>
+					$(function() {
+						if ($('#needs_analyses_<%= needs_analysis.id %>_skill').val() === '<%= i %>') {
+							$('#skill-button-<%= needs_analysis.id %>-<%= i %>').addClass('btn-success');
+							$('#skill-button-<%= needs_analysis.id %>-<%= i %>').removeClass('btn-default');
+						}
+					});
+					<% end %>
+
+				</script>
+
+				<div class="button-wrapper">
+				<% (0..5).each do |i| %>
+					
+					<a class='btn-skill-<%= needs_analysis.id %> btn btn-xs btn-default' onclick="" id='skill-button-<%= needs_analysis.id %>-<%= i %>' value='<%= i %>'><%= i %></a>
+
+					<script type="text/javascript">
+						$('#skill-button-<%= needs_analysis.id %>-<%= i %>').click(function(){
+							$('.btn-skill-<%= needs_analysis.id %>').removeClass('btn-success');
+							$('.btn-skill-<%= needs_analysis.id %>').addClass('btn-default');
+							$('#needs_analyses_<%= needs_analysis.id %>_skill').val('<%= i %>');
+							$('#skill-button-<%= needs_analysis.id %>-<%= i %>').addClass('btn-success');
+							$('#skill-button-<%= needs_analysis.id %>-<%= i %>').removeClass('btn-default');
+						});
+					</script>
+
+				<% end %>
+				</div>
+			</td>
+		</tr>
+	<% end %>
+<% end %>
