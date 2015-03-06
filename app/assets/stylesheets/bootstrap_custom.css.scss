@@ -67,13 +67,19 @@ ol li {
   margin: 1.5em 0 3em 0;
 }
 
+.rating-instructions {
+  padding: 1em;
+  border: 2px solid white;
+  margin: 1.5em 0 3em 0;
+}
+
 .rating-instructions hr {
   margin: 2em 0;
 }
 
 .rating-instructions p, strong {
   text-align: center;
-  margin: 0.5em 0 1em 0;
+  margin: 0.5em 0 2em 0;
 }
 
 a.btn-primary:visited {
@@ -140,6 +146,11 @@ a.btn-danger:visited {
 .button-wrapper {
   white-space: nowrap;
   overflow: hidden;
+}
+
+.sticky-thead {
+  position: fixed;
+  top: 0;
 }
 
 // SimpleForm

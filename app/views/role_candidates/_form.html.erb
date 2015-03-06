@@ -9,9 +9,9 @@ check_boxes: :vertical_radio_and_checkboxes, radio_buttons: :vertical_radio_and_
   <div class="form-inputs">
 
     <div id="role-part1">
+    <%= f.input :previous_role, label: "Previous Role", hint: "What was your previous role / job title, immediately prior to your current role?" %>
     <%= f.input :current_role, label: "Current Role", hint: "What is your current role / job title?" %>
     <%= f.input :time_in_role, label: "Time in Role", hint: "How long have you been doing this role?" %>
-    <%= f.input :previous_role, label: "Previous Role", hint: "What was your previous role / job title, immediately prior to your current role?" %>
     <%= f.input :next_role, label: "Next Role", hint: "What is your planned next role / job title? Leave blank if you do not know." %>
     <%= f.input :qualifications, hint: "What qualifications do you have (especially relevant to your current role)?" %>
     </div>

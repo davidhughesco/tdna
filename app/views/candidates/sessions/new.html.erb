@@ -13,11 +13,10 @@
     <% end -%> -->
 
     <%= f.submit "Sign in", class: "btn btn-primary sign-up" %><br>
-    <%= link_to "Don't yet have an account? Click here to sign up.", new_candidate_registration_path %>
 
+    <%= link_to "Don't yet have an account? Click here to sign up.", new_candidate_registration_path %><br>
+    <%= link_to "Forgotten your password? Click here to reset.", new_password_path(resource_name) %>
     <% end %>
-
-    <!-- <%= render "candidates/shared/links" %> -->
 
   </div>
 </div>
