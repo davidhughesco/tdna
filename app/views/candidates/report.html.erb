@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+
+		<h2>
+			TDNA Report for<br>
+			<small>
+				Candidate: <%= @candidate.name %>, <%= @candidate.organisation_name %><br>
+				Manager: <%= @collaborator.name %>, <%= @collaborator.organisation_name %>
+			</small>
+		</h2>
+
+		<hr><br>
+
+		<%= render 'candidates/role_report' %>
+
+		<%= render 'candidates/tdna_report' %>
+
+	</div>
+</div>

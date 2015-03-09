@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-	before_action :authenticate_administrator!, only: :index
+	before_action :authenticate_administrator!, only: [:index, :report]
 	before_action :authenticate_candidate!, only: [:show]
 
 	def index
@@ -11,6 +11,17 @@ class CandidatesController < ApplicationController
 		@needs_analyses = NeedsAnalysis.where('candidate_id = ?', params[:id])
 		@role_candidates = RoleCandidate.where('candidate_id = ?', params[:id])
 		@role_collaborator = RoleCollaborator.where('collaborator_id = ?', params[:id])
+	end
+
+	def report
+		@disable_nav = true
+		@candidate = Candidate.find(params[:id])
+		@collaborator = Candidate.find(@candidate.collaborator_id)
+		@role_candidate = @candidate.role_candidate
+		@role_collaborator = @candidate.role_collaborator
+		@search = NeedsAnalysis.ransack(params[:q])
+		@needs_analyses = @search.result.where('candidate_id = ?', params[:id])
+		@grouped_areas = @needs_analyses.group_by &:area
 	end
 
 	def collaborator_instructions

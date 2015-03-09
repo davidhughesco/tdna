@@ -138,9 +138,42 @@ a.btn-danger:visited {
   border-right: 2px solid lightgray;
 }
 
+.data-column {
+  width: 10%;
+  text-align: center;
+  color: transparent;
+}
+
+// Data Columns (Formatting)
+
+.data-0, .data-1 {
+  background-color: red;
+}
+
+.data-2, .data-3 {
+  background-color: orange;
+}
+
+.data-4, .data-5 {
+  background-color: green;
+}
+
+.data-true {
+  background-color: darkgreen;
+}
+
+.data-false {
+  background-color: darkred;
+}
+
 .area-row {
+  border: 0px;
   height: 75px;
   font-size: 1.25em;
+}
+
+.area-row th {
+  border: none !important;
 }
 
 .button-wrapper {
@@ -165,6 +198,16 @@ a.btn-danger:visited {
 
 .control-label {
   margin-top: 1.5em;
+}
+
+// Report
+
+.report-section {
+  background-color: white;
+  padding: 0em 3em 1em 3em;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  margin-bottom: 2em;
 }
 
 // Footer

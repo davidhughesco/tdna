@@ -1,0 +1,143 @@
+<h3>Role Analysis</h3><br>
+
+<div class="report-section">
+
+	<h3><small>Previous, Current and Next Roles</small></h3><br>
+
+	<table class="table table-hover">
+		<tbody>
+			<tr>
+				<td style="width:26%">Previous Role</td>
+				<td style="width:37%"><%= @role_candidate.previous_role %></td>
+				<td style="width:37%">-</td>
+			</tr>
+			<tr>
+				<td>Current Role</td>
+				<td><%= @role_candidate.current_role %> (<%= @role_candidate.time_in_role %>)</td>
+				<td><%= @role_collaborator.current_role %></td>
+			</tr>
+			<tr>
+				<td>Next Role</td>
+				<td><%= @role_candidate.next_role %></td>
+				<td><%= @role_collaborator.next_role %></td>
+			</tr>
+			<tr>
+				<td>Qualifications</td>
+				<td colspan="2"><%= simple_format(@role_candidate.qualifications) %></td>
+			</tr>
+			<tr>
+				<td>Context of Previous Role</td>
+				<td colspan="2"><%= @role_candidate.previous_role_context %></td>
+			</tr>
+			<tr>
+				<td>Content of Current Role</td>
+				<td><%= @role_candidate.current_role_context %></td>
+				<td><%= @role_collaborator.current_role_context %></td>
+			</tr>
+			<tr>
+				<td>Content of Next Role</td>
+				<td><%= @role_candidate.next_role_context %></td>
+				<td><%= @role_collaborator.next_role_context %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+
+		<div class="report-section">
+			<h3><small>Main Aspects of Current Role (Candidate)</small></h3><br>
+
+			<table class="table table-hover">
+				<thead>
+					<th style="width:80%">Aspect</th>
+					<th style="width:10%;text-align:center">Imp.</th>
+					<th style="width:10%;text-align:center">Enj.</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= @role_candidate.main_aspect_a %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_importance_a %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_enjoyment_a %></td>
+					</tr>
+					<tr>
+						<td><%= @role_candidate.main_aspect_b %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_importance_b %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_enjoyment_b %></td>
+					</tr>
+					<tr>
+						<td><%= @role_candidate.main_aspect_c %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_importance_c %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_enjoyment_c %></td>
+					</tr>
+					<tr>
+						<td><%= @role_candidate.main_aspect_d %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_importance_d %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_enjoyment_d %></td>
+					</tr>
+					<tr>
+						<td><%= @role_candidate.main_aspect_e %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_importance_e %></td>
+						<td style="text-align:center"><%= @role_candidate.main_aspect_enjoyment_e %></td>
+					</tr>
+				</tbody>		
+			</table>
+		</div>
+
+	</div>
+
+	<div class="col-md-6">
+
+		<div class="report-section">
+			<h3><small>Main Aspects of Current Role (Manager)</small></h3><br>
+
+			<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td style="text-align:center">1</td>
+						<td><%= @role_collaborator.main_aspect_1 %></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">2</td>
+						<td><%= @role_collaborator.main_aspect_2 %></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">3</td>
+						<td><%= @role_collaborator.main_aspect_3 %></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">4</td>
+						<td><%= @role_collaborator.main_aspect_4 %></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">5</td>
+						<td><%= @role_collaborator.main_aspect_5 %></td>
+					</tr>
+				</tbody>		
+			</table>
+		</div>
+
+	</div>
+</div>
+
+<div class="report-section">
+	<h3><small>Secondary Aspects to the Current Role</small></h3>
+	<p><%= simple_format(@role_candidate.secondary_aspect) %></p>
+</div>
+
+<div class="report-section">
+	<h3><small>Unnecessary to the Current Role</small></h3>
+	<p><%= simple_format(@role_candidate.unnecessary_aspect) %></p>
+</div>
+
+<div class="report-section">
+	<h3><small>Shorter-term Development Needs</small></h3>
+	<p><%= simple_format(@role_candidate.short_term_training) %></p>
+
+	<h3><small>Medium-term Development Needs</small></h3>
+	<p><%= simple_format(@role_candidate.medium_term_training) %></p>
+
+	<h3><small>Longer-term Development Needs</small></h3>
+	<p><%= simple_format(@role_candidate.long_term_training) %></p>
+</div>

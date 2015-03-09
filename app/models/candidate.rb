@@ -9,8 +9,8 @@ class Candidate < ActiveRecord::Base
 	has_many :inverse_collaborations, :class_name => "Collaboration", :foreign_key => "collaborator_id"
 	has_many :inverse_collaborators, :through => :inverse_collaborations, :source => :candidate
 	has_one :needs_analysis
-	has_one :role_candidates
-	has_many :role_collaborators
+	has_one :role_candidate
+	has_one :role_collaborator
 
 	validates :collaborator_id, numericality: { only_integer: true }, presence: true
 	validates_presence_of :first_name, :last_name, :email

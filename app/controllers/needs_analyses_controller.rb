@@ -5,8 +5,9 @@ class NeedsAnalysesController < ApplicationController
   respond_to :html
 
   def index
-    @needs_analyses = NeedsAnalysis.all
-    @grouped_analyses = @needs_analyses.group_by &:candidate
+    @search = NeedsAnalysis.ransack(params[:q])
+    @needs_analyses = @search.result
+    @grouped_areas = @needs_analyses.group_by &:area
   end
 
   def show

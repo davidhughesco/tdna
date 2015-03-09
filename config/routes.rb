@@ -16,12 +16,13 @@ Rails.application.routes.draw do
 
   resources :activities
 
-  devise_for :candidates
+  devise_for :candidates, :controllers => { :registrations => :registrations }
   resources :candidates, only: [:index, :show, :destroy]
   resources :collaborations
 
   get '/candidates/:id(.:format)/collaborator' => 'candidates#collaborator_instructions', :as => :collaborator_instructions
   get '/candidates/:id(.:format)/instructions' => 'candidates#instructions', :as => :instructions
+  get '/candidates/:id(.:format)/report' => 'candidates#report', :as => :report
   get '/admin' => 'pages#admin'
 
   # The priority is based upon order of creation: first created -> highest priority.

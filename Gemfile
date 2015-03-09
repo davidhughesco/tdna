@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.4.1'
 gem 'simple_form', '~> 3.1.0'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'ransack', '~> 1.6.3'
 
 group :development, :test do
      gem 'sqlite3'

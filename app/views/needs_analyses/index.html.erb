@@ -1,3 +1,35 @@
+<%= search_form_for @search do |f| %>
+
+<div class="row">
+  <div class="col-md-2">
+      <%= f.input :candidate_id_eq, collection: Candidate.all, label: 'Candidate', required: false %>
+  </div>
+  <div class="col-md-2">
+      <%= f.input :relevance_eq, collection: [0,1,2,3,4,5], label: 'Relevance', required: false %>
+  </div>
+  <div class="col-md-2"> 
+      <%= f.input :interest_eq, collection: [0,1,2,3,4,5], label: 'Interest', required: false %>
+  </div>
+  <div class="col-md-2">
+      <%= f.input :skill_eq, collection: [0,1,2,3,4,5], label: 'Skill', required: false %>       
+  </div>
+  <div class="col-md-2">
+      <%= f.input :current_relevance_eq, collection: [true, false], label: 'Current Relevance', required: false %>
+  </div>
+  <div class="col-md-2">
+      <%= f.input :future_relevance_eq, collection: [true, false], label: 'Future Relevance', required: false %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12" style="margin-bottom:4em">
+    <%= f.submit 'Search', class: "btn btn-primary" %>
+    <%= link_to "Clear", needs_analyses_path, class: "btn btn-default", style: "margin-left:0.25em" %>
+  </div>
+</div>
+
+<% end %>
+
 <table class="table table-hover table-responsive">
 
     <thead>
@@ -10,19 +42,19 @@
 
   <thead>
     <tr>
-      <th style="width:40%">Activity</th>
-      <th class="left-column" style="text-align:center">Current<br>Relevance</th>
-      <th style="text-align:center">Interest</th>
-      <th class="right-column" style="text-align:center">Skill</th>
-      <th style="text-align:center">Current<br>Relevance</th>
-      <th style="text-align:center">Future<br>Relevance</th>
+      <th style="width:50%">Activity</th>
+      <th style="width:10%;text-align:center" class="left-column">Current<br>Relevance</th>
+      <th style="width:10%;text-align:center">Interest</th>
+      <th style="width:10%;text-align:center" class="right-column">Skill</th>
+      <th style="width:10%;text-align:center">Current<br>Relevance</th>
+      <th style="width:10%;text-align:center">Future<br>Relevance</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @grouped_analyses.each do |candidate, needs_analyses| %>
+    <% @grouped_areas.each do |area, needs_analyses| %>
       <tr class="area-row">
-        <th style="vertical-align:bottom" scope="rowgroup" colspan="8"><%= candidate.name %> (<%= link_to candidate.collaborator_id, candidate_path(candidate.collaborator_id) %>)</th>
+        <th style="vertical-align:bottom" scope="rowgroup" colspan="4"><%= area.name %></th>
       </tr>
     <% needs_analyses.each do |needs_analysis| %>
       <tr>
