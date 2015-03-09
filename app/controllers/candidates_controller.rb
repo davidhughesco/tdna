@@ -3,7 +3,7 @@ class CandidatesController < ApplicationController
 	before_action :authenticate_candidate!, only: [:show]
 
 	def index
-		@candidates = Candidate.all
+		@candidates = Candidate.all.order(:created_at)
 	end
 
 	def show
