@@ -5,7 +5,22 @@
 	<h3><small>Previous, Current and Next Roles</small></h3><br>
 
 	<table class="table table-hover">
+		<thead>
+			<th style="width:26%"></th>
+			<th style="width:37%">Candidate</th>
+			<th style="width:37%">Manager</th>
+		</thead>
 		<tbody>
+			<tr>
+				<td style="width:26%">Last Update</td>
+				<td style="width:37%"><%= @role_candidate.updated_at.strftime("%-d %B %Y, %H:%m") %></td>
+				<td style="width:37%"><%= @role_collaborator.updated_at.strftime("%-d %B %Y, %H:%m") %></td>
+			</tr>
+			<tr>
+				<td style="width:26%">Name</td>
+				<td style="width:37%"><strong><%= @candidate.name %></strong><br><%= @candidate.organisation_name %></td>
+				<td style="width:37%"><strong><%= @collaborator.name %></strong><br><%= @collaborator.organisation_name %></td>
+			</tr>
 			<tr>
 				<td style="width:26%">Previous Role</td>
 				<td style="width:37%"><%= @role_candidate.previous_role %></td>
@@ -27,7 +42,8 @@
 			</tr>
 			<tr>
 				<td>Context of Previous Role</td>
-				<td colspan="2"><%= @role_candidate.previous_role_context %></td>
+				<td><%= @role_candidate.previous_role_context %></td>
+				<td>-</td>
 			</tr>
 			<tr>
 				<td>Content of Current Role</td>
