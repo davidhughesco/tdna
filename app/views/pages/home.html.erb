@@ -7,7 +7,7 @@
 			Welcome to the R&amp;S Hughes Limited Training &amp; Development Needs Analysis tool. If you already have an account, please click 'Sign in'. If you have not yet signed up for an account, click 'Sign up' and follow the instructions you have been given. 
 		</p>
 		<p>
-			Please note that this tool is only intended for R&amp;S Hughes Limited clients. If you are interested to learn more about Training &amp; Development Needs Analysis, please get in touch.
+			Please note that this tool is only intended for R&amp;S Hughes Limited clients. If you are interested to learn more about Training &amp; Development Needs Analysis, please <%= mail_to 'bob@bobhughes.co.uk', 'get in touch', subject: 'TDNA Enquiry' %>.
 		</p>
 		<br>
 		<%= link_to 'Sign up', new_candidate_registration_path, class: "btn btn-primary" %>
