@@ -3,6 +3,8 @@
 
 		<h2>Analysis Report</h2>
 
+		<p><%= link_to "(PDF)", report_path(@candidate, :format => 'pdf') %></p>
+
 		<hr><br>
 
 		<%= render 'candidates/role_report' %>

@@ -67,9 +67,18 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
+    pdf-core (0.5.1)
     pg (0.18.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
+    prawn (2.0.0)
+      pdf-core (~> 0.5.0)
+      ttfunk (~> 1.4.0)
+    prawn-rails (0.1.1)
+      prawn
+      prawn-table
+      rails (>= 3.1.0)
+    prawn-table (0.2.1)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -130,6 +139,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    ttfunk (1.4.0)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -150,6 +160,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  prawn-rails (~> 0.1.1)
   rails (= 4.1.8)
   rails_12factor
   ransack (~> 1.6.3)

@@ -22,6 +22,15 @@ class CandidatesController < ApplicationController
 		@search = NeedsAnalysis.ransack(params[:q])
 		@needs_analyses = @search.result.where('candidate_id = ?', params[:id])
 		@grouped_areas = @needs_analyses.group_by &:area
+
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = ReportPdf.new(@candidate)
+				send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', disposition: 'inline'
+			end
+		end
+
 	end
 
 	def collaborator_instructions
