@@ -1,5 +1,10 @@
+# Ruby version:
+ruby "2.2.4"
+
+# Gems source:
 source 'https://rubygems.org'
 
+# Gems:
 gem 'rails', '4.1.8'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
